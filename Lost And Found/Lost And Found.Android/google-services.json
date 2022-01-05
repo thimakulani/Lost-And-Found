@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "202542573004",
+    "project_id": "lost-and-found-ca87b",
+    "storage_bucket": "lost-and-found-ca87b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202542573004:android:ada6521e2f780593442969",
+        "android_client_info": {
+          "package_name": "com.sigauque.technologies.lost_and_found"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202542573004-sf7rkc6fut32aops82ct31ce4doson08.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sigauque.technologies.lost_and_found",
+            "certificate_hash": "f820f6c3abc464063d753ecabaa0736ee15606c8"
+          }
+        },
+        {
+          "client_id": "202542573004-08n77ko2j3lec6h5dnbeugtcol722pg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXyX0F8J7YIHPBzQejvAATzW-grvx7n4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202542573004-08n77ko2j3lec6h5dnbeugtcol722pg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

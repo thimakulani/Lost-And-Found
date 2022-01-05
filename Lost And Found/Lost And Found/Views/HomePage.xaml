@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lost_And_Found.Views.HomePage"
+             Shell.PresentationMode="Animated"
+             Shell.NavBarHasShadow="False"
+             Title="WELCOME THIMA"
+             >
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#e1e2e1">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="lost and found" VerticalOptions="Center" TextColor="Gray" Padding="20"/>
+                <ImageButton HorizontalOptions="EndAndExpand" 
+                             BackgroundColor="Transparent"
+                             Margin="0,0,20,0" VerticalOptions="Center" 
+                             WidthRequest="35" HeightRequest="35" 
+                             x:Name="ImgBtnAdd"
+                             Clicked="ImgBtnAdd_Clicked"
+                             Source="add_plus_new_icon"/>
+            </StackLayout>
+            <Frame VerticalOptions="StartAndExpand" Margin="5" CornerRadius="7" HasShadow="True" Padding="4">
+                <StackLayout>
+                    <CollectionView EmptyView="No Data" x:Name="LostFoundItems" SelectionChanged="LostFoundItems_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame CornerRadius="4" Margin="2" Padding="0" HasShadow="True">
+                                        <StackLayout>
+                                            <Image Source="https://static.wikia.nocookie.net/theamazingworldofgumball/images/8/86/GumballSeason2.png/revision/latest?cb=20180717145515"
+                                                   BackgroundColor="AliceBlue"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   HeightRequest="200"
+                                                   />
+                                            <StackLayout Margin="10">
+                                                <Label Text="Description"/>
+                                                <Label Text="Last Seen"/>
+                                                <Label Text="Dates"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyViewTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame CornerRadius="4" Margin="2" Padding="0" HasShadow="True">
+                                        <StackLayout>
+                                            <Image Source="https://static.wikia.nocookie.net/theamazingworldofgumball/images/8/86/GumballSeason2.png/revision/latest?cb=20180717145515"
+                                                   BackgroundColor="AliceBlue"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   HeightRequest="200"
+                                                   />
+                                            <StackLayout Margin="10">
+                                                <Label Text="Description"/>
+                                                <Label Text="Last Seen"/>
+                                                <Label Text="Dates"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.EmptyViewTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

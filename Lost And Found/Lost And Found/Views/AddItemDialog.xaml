@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="http://rotorgames.com" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lost_And_Found.Views.AddItemDialog">
+    <pages:PopupPage.Animation>
+        <pages:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" 
+            />
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Frame CornerRadius="7">
+                <StackLayout>
+                    <ImageButton Source="close_round_icon" HorizontalOptions="End" WidthRequest="35" HeightRequest="35" BackgroundColor="Transparent" />
+                    <StackLayout>
+                        <Image HeightRequest="150" HorizontalOptions="Fill" Source="attachment_icon"/>
+                        <Frame>
+                            <StackLayout>
+                                <RadioButton Content="Missing Person"/>
+                                <RadioButton Content="Missing Device"/>
+                                <RadioButton Content="Missing Animal"/>
+                            </StackLayout>
+                        </Frame>
+                        <Entry Placeholder="Description" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Date" VerticalOptions="Center"/>
+                            <DatePicker VerticalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Button Text="Add" CornerRadius="10" x:Name="BtnAdd"/>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>

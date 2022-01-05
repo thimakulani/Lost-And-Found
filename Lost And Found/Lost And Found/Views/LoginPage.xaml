@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Lost_And_Found.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <Grid>
+            <BoxView 
+                Margin="5"
+                CornerRadius="7"
+                BackgroundColor="{StaticResource Primary}"
+                />
+
+            <StackLayout Padding="10">
+                <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+                    <Image Source="person_icon" HorizontalOptions="Center" HeightRequest="200" WidthRequest="200"  />
+                    <Label />
+                    <Frame CornerRadius="5">
+                        <StackLayout>
+                           <Entry Placeholder="Email Address" />
+                            <Entry Placeholder="Password" IsPassword="True" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="*"/>
+                                    <ColumnDefinition  Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Text="Login" CornerRadius="6"/>
+                                <Button Text="Signup" Grid.Column="1" CornerRadius="6"/>
+
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label BackgroundColor="#bababa" Grid.Column="0" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                <!-- <Label HeightRequest="1" HorizontalOptions="FillAndExpand" Grid.Column="0" BackgroundColor="Gray" /> !-->
+                                <ImageButton 
+                                    Grid.Column="1"
+                                    Source="google_g_icon" 
+                                    HorizontalOptions="Center" 
+                                    BackgroundColor="Transparent"  
+                                    HeightRequest="40" 
+                                    WidthRequest="40"/>
+                                <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>
