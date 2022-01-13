@@ -1,5 +1,4 @@
-﻿using Rg.Plugins.Popup.Pages;
-using Rg.Plugins.Popup.Services;
+﻿using Lost_And_Found.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +11,17 @@ using Xamarin.Forms.Xaml;
 namespace Lost_And_Found.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddItemDialog
+    public partial class SignupPage : ContentPage
     {
-        public AddItemDialog()
+        public SignupPage()
         {
             InitializeComponent();
+            BindingContext = new SignupViewModel();
         }
 
-        private async void ImgClose_Clicked(object sender, EventArgs e)
+        private void ImgBtnClose_Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.PopAsync();
+            Navigation.PopModalAsync();
         }
     }
 }

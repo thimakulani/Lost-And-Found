@@ -19,7 +19,11 @@
         <StackLayout VerticalOptions="Center">
             <Frame CornerRadius="7">
                 <StackLayout>
-                    <ImageButton Source="close_round_icon" HorizontalOptions="End" WidthRequest="35" HeightRequest="35" BackgroundColor="Transparent" />
+                    <ImageButton Source="close_round_icon" 
+                                 HorizontalOptions="End" WidthRequest="35" HeightRequest="35" 
+                                 x:Name="ImgClose"
+                                 Clicked="ImgClose_Clicked"
+                                 BackgroundColor="Transparent" />
                     <StackLayout>
                         <Image HeightRequest="150" HorizontalOptions="Fill" Source="attachment_icon"/>
                         <Frame>

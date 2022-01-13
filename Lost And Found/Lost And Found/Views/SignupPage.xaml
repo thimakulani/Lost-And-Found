@@ -1,11 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="Lost_And_Found.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             x:Class="Lost_And_Found.Views.SignupPage">
     <ContentPage.Content>
         <Grid>
             <BoxView 
@@ -20,16 +16,16 @@
                     <Label />
                     <Frame CornerRadius="5">
                         <StackLayout>
-                           <Entry Placeholder="Email Address" Text="{Binding Email}"/>
+                            <Entry Placeholder="Name" Text="{Binding Name}" />
+                            <Entry Placeholder="Surname" Text="{Binding Lastname}" />
+                            <Entry Placeholder="Phone Number" Text="{Binding Phone}"/>
+                            <Entry Placeholder="Email" Text="{Binding Email}" />
                             <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" />
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition  Width="*"/>
-                                    <ColumnDefinition  Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Text="Login" CornerRadius="6" Command="{Binding SubmitLoginCommand}"/>
-                                <Button Text="Signup" Grid.Column="1" CornerRadius="6" x:Name="BtnSignup" Clicked="BtnSignup_Clicked"/>
-
+                                <Button Text="Signup" Command="{Binding OnBtnClick}" CornerRadius="6"/>
                             </Grid>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -39,17 +35,21 @@
                                 </Grid.ColumnDefinitions>
                                 <Label BackgroundColor="#bababa" Grid.Column="0" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
                                 <!-- <Label HeightRequest="1" HorizontalOptions="FillAndExpand" Grid.Column="0" BackgroundColor="Gray" /> !-->
-                                <Label Text="Forgot Password?" FontSize="26" TextColor="{StaticResource Primary}" FontAttributes="Bold" HorizontalOptions="Center" Grid.Column="1">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                                    </Label.GestureRecognizers>
-                                </Label>
+                                <ImageButton 
+                                    Grid.Column="1"
+                                    Source="arrow_back_botton_left_icon" 
+                                    HorizontalOptions="Center" 
+                                    x:Name="ImgBtnClose"
+                                    Clicked="ImgBtnClose_Clicked"
+                                    BackgroundColor="Transparent"  
+                                    HeightRequest="40" 
+                                    WidthRequest="40"/>
                                 <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
             </StackLayout>
-    </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

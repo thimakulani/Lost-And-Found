@@ -22,9 +22,9 @@ namespace Lost_And_Found.Views
         public HomePage()
         {
 
+            InitializeComponent();
             LostFoundItems.BindingContext = this;
             LostFoundItems.ItemsSource = LoseItems;
-            InitializeComponent();
             LoadList();
         }
 

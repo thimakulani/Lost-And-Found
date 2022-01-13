@@ -12,7 +12,23 @@ namespace Lost_And_Found
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            Plugin.FirebaseAuth
+                .CrossFirebaseAuth
+                .Current
+                .Instance
+                .AuthState += Instance_AuthState;
+        }
+
+        private void Instance_AuthState(object sender, Plugin.FirebaseAuth.AuthStateEventArgs e)
+        {
+            if(e.Auth.CurrentUser == null)
+            {
+                MainPage = new LoginPage();
+            }
+            else
+            {
+                MainPage = new AppShell();
+            }
         }
 
         protected override void OnStart()
