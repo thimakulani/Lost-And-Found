@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lost_And_Found.Views.DetailItemPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image
+                HeightRequest="200"
+                Aspect="AspectFit"
+                Source="{Binding ImageUrl}"
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="AliceBlue"
+                />
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Margin="10" Orientation="Vertical">
+                        <Label Text="Description"/>
+                        <Label Text="Last Seen"/>
+                        <Label Text="Dates"/>
+                        <Label Text="Posted By" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Margin="10" Orientation="Vertical">
+                        <Label Text="{Binding Description}"/>
+                        <Label Text="{Binding LastSeen}"/>
+                        <Label Text="{Binding Category}"/>
+                        <Label Text="{Binding User}" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="1">
+                        <CollectionView x:Name="CommentItems">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Frame Padding="5" Margin="5">
+                                            <StackLayout>
+                                                <Label Text="{Binding User}" FontSize="12" TextColor="{StaticResource Primary}"/>
+                                                <Label Text="{Binding CommentText}" TextColor="Red"/>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <StackLayout Orientation="Horizontal">
+                            <Entry Placeholder="Message" x:Name="InputMessage" HorizontalOptions="FillAndExpand"/>
+                            <Button HeightRequest="30" Padding="0" Text="SEND" x:Name="BtnSend" Clicked="BtnSend_Clicked" VerticalOptions="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

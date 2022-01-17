@@ -4,23 +4,33 @@
              x:Class="Lost_And_Found.Views.HomePage"
              Shell.PresentationMode="Animated"
              Shell.NavBarHasShadow="False"
-             Title="WELCOME THIMA"
+             Shell.NavBarIsVisible="False"
              >
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#e1e2e1">
+        <StackLayout BackgroundColor="{StaticResource Primary}">
+            <Button x:Name="BtnLogout" Text="Logout" HeightRequest="30" Padding="0" 
+                    CornerRadius="7" HorizontalOptions="End" 
+                    Margin="10"
+                    BackgroundColor="WhiteSmoke" TextColor="{StaticResource Primary}"
+                    Clicked="BtnLogout_Clicked"
+                    />
             <StackLayout Orientation="Horizontal">
-                <Label Text="lost and found" VerticalOptions="Center" TextColor="Gray" Padding="20"/>
+                <Label Text="LOST AND FOUND"  VerticalOptions="Center" TextColor="White" Padding="20"/>
                 <ImageButton HorizontalOptions="EndAndExpand" 
                              BackgroundColor="Transparent"
                              Margin="0,0,20,0" VerticalOptions="Center" 
-                             WidthRequest="35" HeightRequest="35" 
+                             WidthRequest="30" HeightRequest="30" 
                              x:Name="ImgBtnAdd"
                              Clicked="ImgBtnAdd_Clicked"
-                             Source="add_plus_new_icon"/>
+                             Source="add_plus_new_icon"
+                             />
             </StackLayout>
             <Frame VerticalOptions="StartAndExpand" Margin="5" CornerRadius="7" HasShadow="True" Padding="4">
                 <StackLayout>
-                    <CollectionView EmptyView="No Data" x:Name="LostFoundItems" SelectionChanged="LostFoundItems_SelectionChanged">
+                    <CollectionView EmptyView="No Data" x:Name="LostFoundItems" 
+                                    SelectionChanged="LostFoundItems_SelectionChanged"
+                                    SelectionMode="Single"
+                                    >
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
                         </CollectionView.ItemsLayout>
@@ -29,42 +39,36 @@
                                 <StackLayout>
                                     <Frame CornerRadius="4" Margin="2" Padding="0" HasShadow="True">
                                         <StackLayout>
-                                            <Image Source="https://static.wikia.nocookie.net/theamazingworldofgumball/images/8/86/GumballSeason2.png/revision/latest?cb=20180717145515"
+                                            <Image Source="{Binding ImageUrl}"
                                                    BackgroundColor="AliceBlue"
                                                    HorizontalOptions="FillAndExpand"
                                                    HeightRequest="200"
                                                    />
-                                            <StackLayout Margin="10">
-                                                <Label Text="Description"/>
-                                                <Label Text="Last Seen"/>
-                                                <Label Text="Dates"/>
-                                            </StackLayout>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Margin="10" Orientation="Vertical">
+                                                    <Label Text="Description"/>
+                                                    <Label Text="Last Seen"/>
+                                                    <Label Text="Dates"/>
+                                                    <Label Text="Posted By" />
+                                                </StackLayout>
+                                                <StackLayout Grid.Column="1" Margin="10" Orientation="Vertical">
+                                                    <Label Text="{Binding Description}"/>
+                                                    <Label Text="{Binding LastSeen}"/>
+                                                    <Label Text="{Binding Category}"/>
+                                                    <Label Text="{Binding User}" />
+                                                </StackLayout>
+                                            </Grid>
                                         </StackLayout>
                                     </Frame>
                                 </StackLayout>
                             </DataTemplate>
 
                         </CollectionView.ItemTemplate>
-                        <CollectionView.EmptyViewTemplate>
-                            <DataTemplate>
-                                <StackLayout>
-                                    <Frame CornerRadius="4" Margin="2" Padding="0" HasShadow="True">
-                                        <StackLayout>
-                                            <Image Source="https://static.wikia.nocookie.net/theamazingworldofgumball/images/8/86/GumballSeason2.png/revision/latest?cb=20180717145515"
-                                                   BackgroundColor="AliceBlue"
-                                                   HorizontalOptions="FillAndExpand"
-                                                   HeightRequest="200"
-                                                   />
-                                            <StackLayout Margin="10">
-                                                <Label Text="Description"/>
-                                                <Label Text="Last Seen"/>
-                                                <Label Text="Dates"/>
-                                            </StackLayout>
-                                        </StackLayout>
-                                    </Frame>
-                                </StackLayout>
-                            </DataTemplate>
-                        </CollectionView.EmptyViewTemplate>
+                       
                     </CollectionView>
                 </StackLayout>
             </Frame>

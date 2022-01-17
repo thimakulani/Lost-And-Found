@@ -16,10 +16,10 @@
                     <Label />
                     <Frame CornerRadius="5">
                         <StackLayout>
-                            <Entry Placeholder="Name" Text="{Binding Name}" />
-                            <Entry Placeholder="Surname" Text="{Binding Lastname}" />
-                            <Entry Placeholder="Phone Number" Text="{Binding Phone}"/>
-                            <Entry Placeholder="Email" Text="{Binding Email}" />
+                            <Entry Placeholder="Name" Text="{Binding Name}" Keyboard="Text" />
+                            <Entry Placeholder="Surname" Text="{Binding Lastname}" Keyboard="Text" />
+                            <Entry Placeholder="Phone Number" Text="{Binding Phone}" Keyboard="Telephone"/>
+                            <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email"/>
                             <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" />
                             <Grid>
                                 <Grid.ColumnDefinitions>

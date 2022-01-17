@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lost_And_Found.Views.LostItemsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="#e1e2e1">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Items Posted" VerticalOptions="Center" TextColor="Gray" Padding="20"/>
+                </StackLayout>
+                <Frame VerticalOptions="StartAndExpand" Margin="5" CornerRadius="7" HasShadow="True" Padding="4">
+                    <StackLayout>
+                        <CollectionView EmptyView="No Data" x:Name="PostedItems">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Frame CornerRadius="4" Margin="2" Padding="0" HasShadow="True">
+                                            <StackLayout>
+                                                <Image Source="{Binding ImageUrl}"
+                                                   BackgroundColor="AliceBlue"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   HeightRequest="200"
+                                                   />
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Margin="10" Orientation="Vertical">
+                                                        <Label Text="Description"/>
+                                                        <Label Text="Last Seen"/>
+                                                        <Label Text="Dates"/>
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1" Margin="10" Orientation="Vertical">
+                                                        <Label Text="{Binding Description}"/>
+                                                        <Label Text="{Binding LastSeen}"/>
+                                                        <Label Text="{Binding Category}"/>
+                                                    </StackLayout>
+                                                </Grid>
+                                                <Button Text="Found" IsVisible="{Binding IsCurrentUser}" CommandParameter="{Binding Id}" HeightRequest="35" Clicked="Button_Clicked" Margin="15,10"/>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
+                        
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,12 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lost_And_Found.Views.ProfilePage">
+             x:Class="Lost_And_Found.Views.ProfilePage"
+             BackgroundColor="{StaticResource Primary}"
+             Shell.NavBarHasShadow="False"
+             >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame Margin="15">
+                <StackLayout>
+                    <Label FontAttributes="Bold" TextColor="{StaticResource Primary}" FontSize="26" Text="USER-PROFILE" />
+                </StackLayout>
+            </Frame>
+            <StackLayout>
+                <Frame Margin="15">
+                    <StackLayout>
+                        <Entry Text="{Binding FirstName}" Placeholder="Name" Keyboard="Text"/>
+                        <Entry Text="{Binding LastName}" Placeholder="Last Name" Keyboard="Text"/>
+                        <Entry Text="{Binding Phone}" Placeholder="Phone" Keyboard="Telephone"/>
+                        <Entry Text="{Binding Email}" Placeholder="Email" IsEnabled="False" Keyboard="Email"/>
+                        
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Frame Margin="15">
+                <StackLayout>
+                    <Button HeightRequest="35" Text="Update" Command="{Binding OnUpdateCommand}"/>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

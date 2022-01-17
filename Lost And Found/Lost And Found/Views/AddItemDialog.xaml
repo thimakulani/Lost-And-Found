@@ -16,30 +16,37 @@
             />
     </pages:PopupPage.Animation>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center">
-            <Frame CornerRadius="7">
+        <StackLayout VerticalOptions="Center" Margin="5">
+            <Frame CornerRadius="7" Margin="5">
                 <StackLayout>
                     <ImageButton Source="close_round_icon" 
-                                 HorizontalOptions="End" WidthRequest="35" HeightRequest="35" 
+                                 HorizontalOptions="End" WidthRequest="30" HeightRequest="30" 
                                  x:Name="ImgClose"
                                  Clicked="ImgClose_Clicked"
                                  BackgroundColor="Transparent" />
                     <StackLayout>
-                        <Image HeightRequest="150" HorizontalOptions="Fill" Source="attachment_icon"/>
+                        <Button 
+                                 HorizontalOptions="End" 
+                                HeightRequest="35" 
+                                Text="SELECT IMAGE"
+                                 x:Name="BtnChoseImage"
+                                Clicked="BtnChoseImage_Clicked"
+                                />
                         <Frame>
                             <StackLayout>
-                                <RadioButton Content="Missing Person"/>
-                                <RadioButton Content="Missing Device"/>
-                                <RadioButton Content="Missing Animal"/>
+                                <RadioButton IsChecked="True" Content="Missing Person" Value="Person" CheckedChanged="RadioButton_CheckedChanged"/>
+                                <RadioButton Content="Missing Device" Value="Device" CheckedChanged="RadioButton_CheckedChanged"/>
+                                <RadioButton Content="Missing Animal" Value="Animal" CheckedChanged="RadioButton_CheckedChanged"/>
+                                <RadioButton Content="Missing Car" Value="Car" CheckedChanged="RadioButton_CheckedChanged"/>
                             </StackLayout>
                         </Frame>
-                        <Entry Placeholder="Description" />
+                        <Entry Placeholder="Description" x:Name="Description"/>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Date" VerticalOptions="Center"/>
-                            <DatePicker VerticalOptions="Center"/>
+                            <Label Text="Date(Last Seen)" VerticalOptions="Center" FontSize="16" FontAttributes="Bold" />
+                            <DatePicker VerticalOptions="Center" FontAttributes="Bold" FontSize="16" x:Name="SelectedDates"/>
                         </StackLayout>
                     </StackLayout>
-                    <Button Text="Add" CornerRadius="10" x:Name="BtnAdd"/>
+                    <Button Text="Add" CornerRadius="10" HeightRequest="35" x:Name="BtnAdd" Clicked="BtnAdd_Clicked"/>
                 </StackLayout>
             </Frame>
 

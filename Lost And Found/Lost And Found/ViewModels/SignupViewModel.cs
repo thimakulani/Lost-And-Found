@@ -29,33 +29,52 @@ namespace Lost_And_Found.ViewModels
             OnBtnClick = new Command(Signup);
         }
 
-        private void Signup(object obj)
+        private async void Signup(object obj)
         {
-            Dictionary<string, object> data = new Dictionary<string, object>();
-            data.Add("Name", name);
-            data.Add("Phone", phone);
-            data.Add("Password", password);
-            data.Add("Lastname", lastname);
+            if(Name == null)
+            {
+                await App.Current.MainPage.DisplayAlert("Warning", "Name has a missing field", "Got it");
+                return;
+            }
+            if (Lastname == null)
+            {
+                await App.Current.MainPage.DisplayAlert("Warning", "Lastname has a missing field", "Got it");
+                return;
+            }
+            if (Email == null)
+            {
+                await App.Current.MainPage.DisplayAlert("Warning", "Email has a missing field", "Got it");
+                return;
+            }
+            if (Password == null)
+            {
+                await App.Current.MainPage.DisplayAlert("Warning", "Password has a missing field", "Got it");
+                return;
+            }
+            Dictionary<string, object> data = new Dictionary<string, object>
+            {
+                { "Name", name },
+                { "Phone", phone },
+                { "Email", email },
+                { "Lastname", lastname }
+            };
             try
             {
-                var auth = Plugin.FirebaseAuth
+                var auth = await Plugin.FirebaseAuth
                     .CrossFirebaseAuth
                     .Current
                     .Instance
-                    .SignInWithEmailAndPasswordAsync(Email, Password);
-
-
-
-                CrossCloudFirestore
+                    .CreateUserWithEmailAndPasswordAsync(Email.Trim(), Password.Trim());
+                await CrossCloudFirestore
                     .Current
                     .Instance
                     .Collection("PEOPLE")
-                    .Document(auth.Result.User.Uid)
+                    .Document(auth.User.Uid)
                     .SetAsync(data);
             }
             catch (Plugin.FirebaseAuth.FirebaseAuthException ex )
             {
-                App.Current.MainPage.DisplayAlert("Error", ex.Message, "Ok");
+                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "Ok");
             }
 
         }
